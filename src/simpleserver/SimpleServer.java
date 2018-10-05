@@ -7,9 +7,12 @@ import java.net.Socket;
 class SimpleServer {
 
   public static void main(String[] args) throws IOException {
+    parser.CreateUsers();
+    parser.CreatePosts();
     ServerSocket ding;
     Socket dong = null;
     String resource = null;
+    String url = null;
     try {
       ding = new ServerSocket(1299);
       System.out.println("Opened socket " + 1299);
@@ -29,6 +32,8 @@ class SimpleServer {
 
           // read the first line to get the request method, URI and HTTP version
           String line = in.readLine();
+          url = line;
+
           System.out.println("----------REQUEST START---------");
           System.out.println(line);
           // read only headers
@@ -46,6 +51,7 @@ class SimpleServer {
         } catch (IOException e) {
           System.out.println("Error reading");
           System.exit(1);
+
         }
 
         BufferedOutputStream out = new BufferedOutputStream(dong.getOutputStream());
@@ -59,10 +65,19 @@ class SimpleServer {
         writer.println("");
 
         // Body of our response
-        writer.println("<h1>Some cool response!</h1>");
+        String response = parser.process(url).replaceAll(",", ",<br/>");
+        response = response.replaceAll("\\[", "[<br/>");
+        response = response.replaceAll("]", "<br/>]");
+        response = response.replaceAll("}", "</p><p style=\"position:relative; left:100px\">}");
+        response = response.replaceAll("\\{", "{</p><p style=\"position:relative;left:150px\">");
 
+
+        writer.println("{");
+        writer.println(response);
+        writer.println("}");
         dong.close();
       }
+
     } catch (IOException e) {
       System.out.println("Error opening socket");
       System.exit(1);
