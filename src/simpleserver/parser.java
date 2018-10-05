@@ -22,7 +22,20 @@ public class Parser {
     public static void CreateUsers() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         BufferedReader buffer;
-        buffer = new BufferedReader(new FileReader("src/data.json"));
-        JsonParser parser = new JsonParser();
+        // try block runs if src/data.json exists
+        try {
+            buffer = new BufferedReader(new FileReader("src/data.json"));
+            JsonParser parser = new JsonParser();
+            JsonObject obj = parser.parse(buffer).getAsJsonObject();
+            Users[] user = gson.fromJson(obj.get("users"), Users[].class);
+            user_All = user;
+            JsonAllUsers = gson.toJson(user);
+            JsonElement pretty = parser.parse(JsonAllUsers);
+            for (int i = 0; i < user_All.length; i++) {
+                user_All[i] = new Users(user_All[i].User_get_name(), user_All[i].User_get_id());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
