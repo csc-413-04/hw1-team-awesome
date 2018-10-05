@@ -66,6 +66,7 @@ Users[] user_All = Parser.getUserObject();
         // it will take substring of url w/ just the maxlength number
         if (url.length() > limit + 2) {
             String maxlength = url.substring(limit + 2, (url.length()));
+            
             //if maxlength is a number,
             // it will parse it into an int
             if (Parser.NumCheck(maxlength) == true) {
@@ -98,6 +99,13 @@ Users[] user_All = Parser.getUserObject();
                         // push that Posts objects inside posts_Array
                         posts_Array.add(dummy_post);
                     }
+                //parse total search entries into String
+                    
+                String totNum = String.valueOf(posts_Array.size());
+                // frontend stuff
+                response = response.concat(totNum + "</p><p style=\"position: relative; left:50px\">\"data\":");
+                // frontend stuff
+                response = response.concat("</p><p style=\"position: relative; left:100px\">" + gson.toJson(posts_Array) + "</p></code>");
                 }
 
 
