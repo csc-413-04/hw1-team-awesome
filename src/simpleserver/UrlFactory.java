@@ -93,7 +93,8 @@ Users[] user_All = Parser.getUserObject();
                         else {
                             dummy_data = dummy_data.substring(0, sum);
                         }
-                        dummy_post = new Posts(posts_All[i].get_id(), posts_All[i].getUser(), dummy_data);
+                        dummy_post = new Posts(pposts_All[i].getPosts_id(), posts_All[i].getUser(), dummy_data);
+                        
                         // push that Posts objects inside posts_Array
                         posts_Array.add(dummy_post);
                     }
