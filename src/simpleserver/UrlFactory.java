@@ -99,14 +99,25 @@ Users[] user_All = Parser.getUserObject();
                         // push that Posts objects inside posts_Array
                         posts_Array.add(dummy_post);
                     }
+                }
                 //parse total search entries into String
-                    
                 String totNum = String.valueOf(posts_Array.size());
                 // frontend stuff
                 response = response.concat(totNum + "</p><p style=\"position: relative; left:50px\">\"data\":");
                 // frontend stuff
                 response = response.concat("</p><p style=\"position: relative; left:100px\">" + gson.toJson(posts_Array) + "</p></code>");
+                // error if no search entries
+                if (posts_Array.size() == 0) {
+                    return fail;
+                } else {
+                    return response;
                 }
-
-
-}
+            // return error if the maxlength String is not a number
+            } else {
+                return fail;
+            }
+        // return error if url length is too short
+        } else {
+            return fail;
+        }
+    }
