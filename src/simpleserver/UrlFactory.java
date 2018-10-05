@@ -13,6 +13,12 @@ Users[] user_All = Parser.getUserObject();
     String fail = "<code><p style=\"position: relative; left:50px\">\"status\":\"ERROR\"</p></code>";
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+     public String UsersAll(String url) {
+        String totNum = String.valueOf(user_All.length);
+        response = response.concat(totNum + "</p><p style=\"position: relative; left:50px\">\"data\":");
+        response = response.concat("</p><p style=\"position: relative; left:100px\">" + Parser.getUserJson() + "</p></code>");
+        return response;
+    }
 
 
 }
