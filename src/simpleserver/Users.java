@@ -9,7 +9,7 @@ public class Users{
     private int userid;
 
     public Users(String user_name, int user_id) {
-        username = user_name;
+        this.username = user_name;
         this.userid = user_id;
         user_all.put(user_id, this);
     }

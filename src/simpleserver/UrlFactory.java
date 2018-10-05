@@ -28,31 +28,33 @@ Users[] user_All = parser.getUserObject();
         if (url.length() >= equal + 1) {
             String user_String = url.substring(equal + 1, url.length());
             // if the string ID is a number, it will parse them into an int
-            for (int i = 0; i < user_All.length; i++) {
+            if (parser.NumCheck(user_String) == true) {
+                int id = Integer.parseInt(user_String);
+                for (int i = 0; i < user_All.length; i++) {
                     if (id == user_All[i].User_get_id()) {
                         users_Array.add(user_All[i]);
-                    }
-                    else {
+                    } else {
 
                     }
                 }
-            // convert total number(s) of searches into String
+                // convert total number(s) of searches into String
                 String totNum = String.valueOf(users_Array.size());
-            
+
                 // frontend stuff
-            response = response.concat(totNum + "</p><p style=\"position: relative; left:50px\">\"data\":");
+                response = response.concat(totNum + "</p><p style=\"position: relative; left:50px\">\"data\":");
                 response = response.concat("</p><p style=\"position: relative; left:100px\">" + gson.toJson(users_Array) + "</p></code>");
                 return response;
+            }
+            else {
+                return fail;
+            }
             } else {
                 return fail;
             }
         }
     // return error if the url length is too short
-        else {
-            return fail;
-        
-        }
-    }
+
+
     public String PostsMaxLength(String url) {
         
         int equal = url.indexOf("=");
