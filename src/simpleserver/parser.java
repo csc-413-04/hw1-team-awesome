@@ -88,7 +88,10 @@ public class Parser {
         if (url_given.equals("/user")) {
             return factory.UsersAll(url_given);
         }
-
+        // IF url starts w/ /user?userid=...
+        else if (url_given.startsWith("/user?userid=")) {
+            return factory.UserGiven(url_given);
+        }
     }
 
 
