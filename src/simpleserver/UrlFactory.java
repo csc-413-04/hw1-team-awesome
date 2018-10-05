@@ -38,6 +38,13 @@ Users[] user_All = Parser.getUserObject();
             // convert total number(s) of searches into String
                 String totNum = String.valueOf(users_Array.size());
                 // frontend stuff
+            response = response.concat(totNum + "</p><p style=\"position: relative; left:50px\">\"data\":");
+                response = response.concat("</p><p style=\"position: relative; left:100px\">" + gson.toJson(users_Array) + "</p></code>");
+                return response;
+            } else {
+                return fail;
+            }
+        }
         
 
 
