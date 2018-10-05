@@ -42,5 +42,16 @@ public class Parser {
     public static void CreatePosts() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         BufferedReader buffer;
+        try {
+            buffer = new BufferedReader(new FileReader("src/data.json"));
+            JsonParser parser = new JsonParser();
+            JsonObject obj = parser.parse(buffer).getAsJsonObject();
+            Posts[] post = gson.fromJson(obj.get("posts"), Posts[].class);
+            posts_All = post;
+            JsonAllPosts = gson.toJson(posts_All);
+            // get all the Users Object inside posts_All
+            for (int i = 0; i < posts_All.length; i++) {
+                posts_All[i] = new Posts(posts_All[i].getPosts_id(), posts_All[i].getUser(), posts_All[i].getPosts_data());
+            }
     }
 }
