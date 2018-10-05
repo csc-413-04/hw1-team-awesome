@@ -40,6 +40,7 @@ public class Parser {
     }
 
     public static void CreatePosts() {
-
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        BufferedReader buffer;
     }
 }
