@@ -10,6 +10,7 @@ class SimpleServer {
     ServerSocket ding;
     Socket dong = null;
     String resource = null;
+    String url = null;
     try {
       ding = new ServerSocket(1299);
       System.out.println("Opened socket " + 1299);
@@ -29,6 +30,7 @@ class SimpleServer {
 
           // read the first line to get the request method, URI and HTTP version
           String line = in.readLine();
+          url = line;
           System.out.println("----------REQUEST START---------");
           System.out.println(line);
           // read only headers
