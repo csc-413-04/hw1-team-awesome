@@ -57,4 +57,27 @@ public class Parser {
             e.printStackTrace();
         }
     }
+
+ public static String getUserJson() {
+        return JsonAllUsers;
+    }
+
+    public static Users[] getUserObject() {
+        return user_All;
+    }
+
+    public static Posts[] getPostObjects() {
+        return posts_All;
+    }
+
+
+    public static boolean NumCheck(String num) {
+        try {
+            int num_check = Integer.parseInt(num);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
+
 }
