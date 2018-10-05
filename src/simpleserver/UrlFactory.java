@@ -27,6 +27,14 @@ Users[] user_All = Parser.getUserObject();
         if (url.length() >= equal + 1) {
             String user_String = url.substring(equal + 1, url.length());
             // if the string ID is a number, it will parse them into an int
+            for (int i = 0; i < user_All.length; i++) {
+                    if (id == user_All[i].User_get_id()) {
+                        users_Array.add(user_All[i]);
+                    }
+                    else {
+
+                    }
+                }
         
 
 
