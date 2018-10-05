@@ -92,6 +92,11 @@ public class Parser {
         else if (url_given.startsWith("/user?userid=")) {
             return factory.UserGiven(url_given);
         }
+        // IF url starts w/ /posts?posts=(any id num )&maxlength=...
+        else if (url_given.contains("maxlength=")) {
+            return factory.PostsMaxLength(url_given);
+        }
+
     }
 
 
