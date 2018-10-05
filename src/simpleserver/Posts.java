@@ -15,7 +15,7 @@ public class Posts {
         this.data = data;
         posts_all.put(postid, this);
     }
- public String getPosts_data() {
+    public String getPosts_data() {
         return data;
     }
   public int getPosts_id() {
