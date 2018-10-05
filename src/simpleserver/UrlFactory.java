@@ -35,6 +35,9 @@ Users[] user_All = Parser.getUserObject();
 
                     }
                 }
+            // convert total number(s) of searches into String
+                String totNum = String.valueOf(users_Array.size());
+                // frontend stuff
         
 
 
