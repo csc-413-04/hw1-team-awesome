@@ -1,4 +1,5 @@
 package simpleserver;
+
 import java.util.*;
 
 public class Users{
@@ -12,9 +13,13 @@ public class Users{
         this.userid = user_id;
         user_all.put(user_id, this);
     }
-    
+    // get name function
     public String User_get_name() {
         return username;
+    }
+    //Added get id function
+    public int User_get_id() {
+        return userid;
     }
 
 }
