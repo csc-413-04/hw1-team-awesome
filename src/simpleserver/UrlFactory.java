@@ -24,6 +24,10 @@ Users[] user_All = Parser.getUserObject();
         int equal = url.indexOf("=");
         // if url length is large enough to show the user ID,
         // the method takes the substring of url w/ just an ID
+        if (url.length() >= equal + 1) {
+            String user_String = url.substring(equal + 1, url.length());
+            // if the string ID is a number, it will parse them into an int
+        
 
 
 }
