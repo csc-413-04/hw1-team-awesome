@@ -79,5 +79,13 @@ public class Parser {
         }
         return true;
     }
+    public static String process(String url) {
+        String[] url_section = url.split(" ");
+        String url_given = url_section[1];
+        // default response
 
-}
+        UrlFactory factory = new UrlFactory();
+    }
+
+
+    }

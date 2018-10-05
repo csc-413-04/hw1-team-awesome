@@ -31,6 +31,7 @@ class SimpleServer {
           // read the first line to get the request method, URI and HTTP version
           String line = in.readLine();
           url = line;
+          
           System.out.println("----------REQUEST START---------");
           System.out.println(line);
           // read only headers
@@ -48,6 +49,7 @@ class SimpleServer {
         } catch (IOException e) {
           System.out.println("Error reading");
           System.exit(1);
+          
         }
 
         BufferedOutputStream out = new BufferedOutputStream(dong.getOutputStream());
@@ -68,8 +70,12 @@ class SimpleServer {
         response = response.replaceAll("\\{", "{</p><p style=\"position:relative;left:150px\">");
 
 
+        writer.println("{");
+        writer.println(response);
+        writer.println("}");
         dong.close();
       }
+      
     } catch (IOException e) {
       System.out.println("Error opening socket");
       System.exit(1);
