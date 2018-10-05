@@ -121,3 +121,52 @@ Users[] user_All = Parser.getUserObject();
             return fail;
         }
     }
+
+    public String PostsGiven(String url) {
+        int equal = url.indexOf("=");
+        // IF url_given's length is > than index of "=",
+        // get the url w/ only the post id
+        if (url.length() >= equal + 1) {
+            String dummy_data = url.substring(equal + 1, url.length());
+            // parse dummy_data into an int if it is a number
+            if (Parser.NumCheck(dummy_data) == true) {
+                int id = Integer.parseInt(dummy_data);
+                for (int i = 0; i < posts_All.length; i++) {
+                    // push given Posts Objects if id matches
+                    if (id == posts_All[i].getPosts_id()) {
+                        posts_Array.add(posts_All[i]);
+                        break;
+                    }
+                }
+                // parse total search entries to String
+                String totNum = String.valueOf(posts_Array.size());
+                // frontend stuff
+                response = response.concat(totNum + "</p><p style=\"position: relative; left:50px\">\"data\":");
+                // frontend stuff
+                response = response.concat("</p><p style=\"position: relative; left:100px\">" + gson.toJson(posts_Array) + "</p></code>");
+            // return error if dummy_data is not a number
+            } else {
+                return fail;
+            }
+        // return error if url length is too short
+        } else {
+            return fail;
+        }
+        // ERROR if no results
+        if (posts_Array.size() == 0) {
+            return fail;
+        } else {
+            return response;
+        }
+
+
+    }
+    public String Default() {
+        response = "<code><p style=\"position: relative; left:50px\">\"status\":\"SUCCESS\"</p></code>";
+        return response;
+    }
+
+    public String Fail() {
+        return fail;
+    }
+}
