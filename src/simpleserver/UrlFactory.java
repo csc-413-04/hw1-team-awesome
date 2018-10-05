@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class UrlFactory {
 
-Users[] user_All = Parser.getUserObject();
-    Posts[] posts_All = Parser.getPostObjects();
+Users[] user_All = parser.getUserObject();
+    Posts[] posts_All = parser.getPostObjects();
     ArrayList<Users> users_Array = new ArrayList<>();
     ArrayList<Posts> posts_Array = new ArrayList<>();
     
@@ -17,7 +17,7 @@ Users[] user_All = Parser.getUserObject();
      public String UsersAll(String url) {
         String totNum = String.valueOf(user_All.length);
         response = response.concat(totNum + "</p><p style=\"position: relative; left:50px\">\"data\":");
-        response = response.concat("</p><p style=\"position: relative; left:100px\">" + Parser.getUserJson() + "</p></code>");
+        response = response.concat("</p><p style=\"position: relative; left:100px\">" + parser.getUserJson() + "</p></code>");
         return response;
     }
     
@@ -69,7 +69,7 @@ Users[] user_All = Parser.getUserObject();
             
             //if maxlength is a number,
             // it will parse it into an int
-            if (Parser.NumCheck(maxlength) == true) {
+            if (parser.NumCheck(maxlength) == true) {
                 int sum = Integer.parseInt(maxlength);
                 int id = Integer.parseInt(post_id);
                 Posts dummy_post;
@@ -94,7 +94,7 @@ Users[] user_All = Parser.getUserObject();
                         else {
                             dummy_data = dummy_data.substring(0, sum);
                         }
-                        dummy_post = new Posts(pposts_All[i].getPosts_id(), posts_All[i].getUser(), dummy_data);
+                        dummy_post = new Posts(posts_All[i].getPosts_id(), posts_All[i].getUser(), dummy_data);
                         
                         // push that Posts objects inside posts_Array
                         posts_Array.add(dummy_post);
@@ -129,7 +129,7 @@ Users[] user_All = Parser.getUserObject();
         if (url.length() >= equal + 1) {
             String dummy_data = url.substring(equal + 1, url.length());
             // parse dummy_data into an int if it is a number
-            if (Parser.NumCheck(dummy_data) == true) {
+            if (parser.NumCheck(dummy_data) == true) {
                 int id = Integer.parseInt(dummy_data);
                 for (int i = 0; i < posts_All.length; i++) {
                     // push given Posts Objects if id matches

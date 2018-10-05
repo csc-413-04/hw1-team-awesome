@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class Parser {
+public class parser {
 
     // Users Json String
     private static String JsonAllUsers = null;
