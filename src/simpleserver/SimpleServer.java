@@ -64,8 +64,8 @@ class SimpleServer {
         String response = Parser.process(url).replaceAll(",", ",<br/>");
                 response = response.replaceAll("\\[", "[<br/>");
                 response = response.replaceAll("]", "<br/>]");
-                response = response.replaceAll("}", "</p><p 
-
+                response = response.replaceAll("}", "</p><p style=\"position:relative; left:100px\">}");
+                response = response.replaceAll("\\{", "{</p><p style=\"position:relative;left:150px\">");
 
 
         dong.close();
