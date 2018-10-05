@@ -48,9 +48,18 @@ Users[] user_All = Parser.getUserObject();
     // return error if the url length is too short
         else {
             return fail;
+        
         }
     }
+    public String PostsMaxLength(String url) {
         
+        int equal = url.indexOf("=");
+        int and = url.indexOf("&");
+        int lim = url.indexOf("h");
+        
+        // gets the url w/ just a post id
+        String post_id = url.substring(equal + 1, (and));
+    }
 
 
 }
