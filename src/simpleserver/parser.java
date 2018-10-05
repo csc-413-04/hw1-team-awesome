@@ -85,6 +85,10 @@ public class Parser {
         // default response
 
         UrlFactory factory = new UrlFactory();
+        if (url_given.equals("/user")) {
+            return factory.UsersAll(url_given);
+        }
+
     }
 
 
