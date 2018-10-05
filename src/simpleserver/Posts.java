@@ -18,4 +18,7 @@ public class Posts {
     public String getPosts_data() {
         return data;
     }
+  public int getPosts_id() {
+        return this.postid;
+    }
 }
