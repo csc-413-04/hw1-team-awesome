@@ -9,4 +9,10 @@ public class Posts {
     private int userid;
     private String data;
 
+    public Posts(int post_id, int user_id, String data) {
+        this.postid = post_id;
+        this.userid = user_id;
+        this.data = data;
+        posts_all.put(postid, this);
+    }
 }
