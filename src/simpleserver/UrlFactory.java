@@ -71,8 +71,33 @@ Users[] user_All = Parser.getUserObject();
             if (Parser.NumCheck(maxlength) == true) {
                 int sum = Integer.parseInt(maxlength);
                 int id = Integer.parseInt(post_id);
-            }
-    }
+                Posts dummy_post;
+                String dummy_data;
+                
+                for (int i = 0; i < posts_All.length; i++) {
+                    
+                    // IF the post id matches AND maxlength <= Posts data length,
+                    // dummy_data stores that Posts Object's data and limit to certain length and
+                    // dummy_post stores new Posts Object with altered data
+                    if (id == posts_All[i].getPosts_id() && sum <= posts_All[i].getPosts_data().length()) {
+                        dummy_data = posts_All[i].getPosts_data();
+                        // if maxlength is 0
+                        if (sum < 1) {
+                            dummy_data = "";
+                        }
+                        // if maxlength is 1
+                        else if (sum == 1) {
+                            dummy_data = dummy_data.substring(0, 1);
+                        }
+                        // if maxlength is any other number
+                        else {
+                            dummy_data = dummy_data.substring(0, sum);
+                        }
+                        dummy_post = new Posts(posts_All[i].get_id(), posts_All[i].getUser(), dummy_data);
+                        // push that Posts objects inside posts_Array
+                        posts_Array.add(dummy_post);
+                    }
+                }
 
 
 }
