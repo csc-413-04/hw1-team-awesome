@@ -101,8 +101,14 @@ public class Parser {
             return factory.PostsGiven(url_given);
 
         }
+        else if (url_given.equals("/")){
+            return factory.Default();
+        }
+        else {
+            return factory.Fail();
+        }
 
     }
 
 
-    }
+}
