@@ -45,6 +45,11 @@ Users[] user_All = Parser.getUserObject();
                 return fail;
             }
         }
+    // return error if the url length is too short
+        else {
+            return fail;
+        }
+    }
         
 
 
