@@ -9,6 +9,7 @@ Users[] user_All = Parser.getUserObject();
     Posts[] posts_All = Parser.getPostObjects();
     ArrayList<Users> users_Array = new ArrayList<>();
     ArrayList<Posts> posts_Array = new ArrayList<>();
+    
     String response = "<code><p style=\"position: relative; left:50px\">\"status\":\"SUCCESS\"</p><p style=\"position: relative; left:50px\">\"entries\":";
     String fail = "<code><p style=\"position: relative; left:50px\">\"status\":\"ERROR\"</p></code>";
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -37,6 +38,7 @@ Users[] user_All = Parser.getUserObject();
                 }
             // convert total number(s) of searches into String
                 String totNum = String.valueOf(users_Array.size());
+            
                 // frontend stuff
             response = response.concat(totNum + "</p><p style=\"position: relative; left:50px\">\"data\":");
                 response = response.concat("</p><p style=\"position: relative; left:100px\">" + gson.toJson(users_Array) + "</p></code>");
@@ -55,10 +57,21 @@ Users[] user_All = Parser.getUserObject();
         
         int equal = url.indexOf("=");
         int and = url.indexOf("&");
-        int lim = url.indexOf("h");
+        int limit = url.indexOf("h");
         
         // gets the url w/ just a post id
         String post_id = url.substring(equal + 1, (and));
+        
+        // if url length is big enough to show the maxlength number,
+        // it will take substring of url w/ just the maxlength number
+        if (url.length() > limit + 2) {
+            String maxlength = url.substring(limit + 2, (url.length()));
+            //if maxlength is a number,
+            // it will parse it into an int
+            if (Parser.NumCheck(maxlength) == true) {
+                int sum = Integer.parseInt(maxlength);
+                int id = Integer.parseInt(post_id);
+            }
     }
 
 
