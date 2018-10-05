@@ -53,5 +53,8 @@ public class Parser {
             for (int i = 0; i < posts_All.length; i++) {
                 posts_All[i] = new Posts(posts_All[i].getPosts_id(), posts_All[i].getUser(), posts_All[i].getPosts_data());
             }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
