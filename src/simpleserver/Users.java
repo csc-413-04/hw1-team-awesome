@@ -12,5 +12,9 @@ public class Users{
         this.userid = user_id;
         user_all.put(user_id, this);
     }
+    
+    public String User_get_name() {
+        return username;
+    }
 
 }
