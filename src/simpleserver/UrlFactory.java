@@ -19,6 +19,11 @@ Users[] user_All = Parser.getUserObject();
         response = response.concat("</p><p style=\"position: relative; left:100px\">" + Parser.getUserJson() + "</p></code>");
         return response;
     }
+    
+    public String UserGiven(String url) {
+        int equal = url.indexOf("=");
+        // if url length is large enough to show the user ID,
+        // the method takes the substring of url w/ just an ID
 
 
 }
