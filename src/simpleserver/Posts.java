@@ -5,6 +5,7 @@ import java.util.*;
 public class Posts {
 
  private final static Map<Integer, Posts> posts_all = new HashMap<>();
+ 
     private int postid;
     private int userid;
     private String data;
@@ -18,7 +19,13 @@ public class Posts {
     public String getPosts_data() {
         return data;
     }
+ 
   public int getPosts_id() {
         return this.postid;
     }
+ //Added getUser() Function
+ public int getUser() {
+       return this.userid;
+    }
+ 
 }

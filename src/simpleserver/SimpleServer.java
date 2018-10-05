@@ -61,7 +61,12 @@ class SimpleServer {
         writer.println("");
 
         // Body of our response
-        writer.println("<h1>Some cool response!</h1>");
+        String response = Parser.process(url).replaceAll(",", ",<br/>");
+                response = response.replaceAll("\\[", "[<br/>");
+                response = response.replaceAll("]", "<br/>]");
+                response = response.replaceAll("}", "</p><p 
+
+
 
         dong.close();
       }
