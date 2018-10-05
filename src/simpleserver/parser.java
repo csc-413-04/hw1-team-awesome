@@ -79,5 +79,9 @@ public class Parser {
         }
         return true;
     }
+    public static String process(String url) {
 
-}
+    }
+
+
+    }
