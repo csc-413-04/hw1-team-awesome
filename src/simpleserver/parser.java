@@ -38,4 +38,8 @@ public class Parser {
             e.printStackTrace();
         }
     }
+
+    public static void CreatePosts() {
+
+    }
 }
