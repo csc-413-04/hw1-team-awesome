@@ -20,7 +20,9 @@ public class Parser {
     private static Posts[] posts_All = null;
     
     public static void CreateUsers() {
-    //For Creating users
-
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        BufferedReader buffer;
+        buffer = new BufferedReader(new FileReader("src/data.json"));
+        JsonParser parser = new JsonParser();
     }
 }
